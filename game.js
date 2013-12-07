@@ -1,5 +1,5 @@
 var cw = 10;
-var dimension = 64
+var dimension = 32;
 var thickness = 2;
 var offset = thickness / 2;
 var canvas, ctx, w, h, xOffset, yOffset; 
@@ -49,6 +49,14 @@ $(document).ready(function() {
 		gameLoop();
 		if (typeof game_loop != "undefined") clearInterval(game_loop);
 		game_loop = setInterval(gameLoop, 1000);
+		$('#start-game').button("disable");
+		$("#pause-game").button("enable");
+	});
+	
+	$("#pause-game").click(function(event) {
+		clearInterval(game_loop);
+		$('#start-game').button("enable");
+		$("#pause-game").button("disable");
 	});
 
 	$("#gosper-glider-gun").click(function(event) {
