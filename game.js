@@ -1,5 +1,5 @@
 var cw = 10;
-var dimension = 32;
+var dimension = 64;
 var thickness = 2;
 var offset = thickness / 2;
 var canvas, ctx, w, h, xOffset, yOffset; 
@@ -48,7 +48,7 @@ $(document).ready(function() {
 	$("#start-game").click(function(event) {
 		gameLoop();
 		if (typeof game_loop != "undefined") clearInterval(game_loop);
-		game_loop = setInterval(gameLoop, 1000);
+		game_loop = setInterval(gameLoop, 400);
 		$('#start-game').button("disable");
 		$("#pause-game").button("enable");
 	});
