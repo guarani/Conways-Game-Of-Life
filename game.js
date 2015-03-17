@@ -13,7 +13,7 @@ $(document).ready(function() {
 	h = $("#canvas").height();
 	xOffset = $("#canvas").offset().left;
 	yOffset = $("#canvas").offset().top;
-	ctx.lineWidth = 2;
+	ctx.lineWidth = thickness;
 	ctx.strokeStyle = 'black';
 	var i, j;
 	
@@ -48,7 +48,7 @@ $(document).ready(function() {
 	$("#start-game").click(function(event) {
 		gameLoop();
 		if (typeof game_loop != "undefined") clearInterval(game_loop);
-		game_loop = setInterval(gameLoop, 400);
+		game_loop = setInterval(gameLoop, 100);
 		$('#start-game').button("disable");
 		$("#pause-game").button("enable");
 	});
@@ -71,25 +71,25 @@ $(document).ready(function() {
 					if (i && grid[i - 1][j])
 							neighbours++;
 					// right
-					if (i < 31 && grid[i + 1][j])
+					if (i < (dimension - 1) && grid[i + 1][j])
 							neighbours++;
 					// top
 					if (j && grid[i][j - 1])
 							neighbours++;
 					// bottom
-					if (j < 31 && grid[i][j + 1])
+					if (j < (dimension - 1) && grid[i][j + 1])
 							neighbours++;
 					// top-left
 					if ((i && j) && grid[i - 1][j - 1])
 							neighbours++;
 					// top-right
-					if ((i < 31 && j) && grid[i + 1][j - 1])
+					if ((i < (dimension - 1) && j) && grid[i + 1][j - 1])
 							neighbours++;
 					// bottom-left
-					if ((i && j < 31) && grid[i - 1][j + 1])
+					if ((i && j < (dimension - 1)) && grid[i - 1][j + 1])
 							neighbours++;
 					// bottom-right
-					if ((i < 31 && j < 31) && grid[i + 1][j + 1])
+					if ((i < (dimension - 1) && j < (dimension - 1)) && grid[i + 1][j + 1])
 							neighbours++;
 					
 					if (neighbours) {
