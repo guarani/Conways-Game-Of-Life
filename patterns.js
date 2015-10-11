@@ -38,3 +38,21 @@ function gosperGliderGun() {
 	drawAllChanges();
 	updateChanges();
 }
+function lightweightSpaceship() {
+	changes[3][1] = true;
+	changes[4][1] = true;
+	changes[2][2] = true;
+	changes[3][2] = true;
+	changes[4][2] = true;
+	changes[5][2] = true;
+	changes[2][3] = true;
+	changes[3][3] = true;
+	changes[5][3] = true;
+	changes[6][3] = true;
+	changes[4][4] = true;
+	changes[5][4] = true;
+	drawAllChanges();
+	updateChanges();
+}
+
+

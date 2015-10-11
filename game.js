@@ -1,6 +1,6 @@
 var cw = 10;
 var dimension = 64;
-var thickness = 2;
+var thickness = 1;
 var offset = thickness / 2;
 var canvas, ctx, w, h, xOffset, yOffset; 
 var grid = new Array(dimension);
@@ -59,8 +59,12 @@ $(document).ready(function() {
 		$("#pause-game").button("disable");
 	});
 
-	$("#gosper-glider-gun").click(function(event) {
-		gosperGliderGun();
+	$("#cgl-pattern").click(function(event) {
+        if ($(this).val() === 'ggg') {
+            gosperGliderGun();
+        } else if ($(this).val() === 'lss') {
+            lightweightSpaceship();
+        }
 	});
 
 	function gameLoop() {
